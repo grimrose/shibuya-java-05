@@ -9,8 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.inject.Inject;
-import java.text.DateFormat;
-import java.util.Date;
 
 public class ShibuyaJava05Presenter {
 
@@ -25,6 +23,11 @@ public class ShibuyaJava05Presenter {
     @FXML
     TableColumn<MessageRow, String> messageColumn;
 
+    @Inject
+    MessageRowService messageRowService;
+
+    @Inject
+    MessageService messageService;
 
     @FXML
     void initialize() {
@@ -32,10 +35,8 @@ public class ShibuyaJava05Presenter {
         submitAtColumn.setCellValueFactory(new PropertyValueFactory<MessageRow, String>("submitAt"));
         messageColumn.setCellValueFactory(new PropertyValueFactory<MessageRow, String>("message"));
 
-        Message message = new Message(new Date(), "ようこそ");
-
-        String submitAt = DateFormat.getDateTimeInstance().format(message.getSubmitAt());
-        MessageRow row = new MessageRow(submitAt, message.getMessage());
+        Message message = messageService.create("ようこそ");
+        MessageRow row = messageRowService.create(message);
 
         messageRowList.add(row);
 
