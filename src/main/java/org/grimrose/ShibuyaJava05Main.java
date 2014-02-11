@@ -12,8 +12,8 @@ public class ShibuyaJava05Main extends Application {
 
     public void start(Stage stage) throws Exception {
         ShibuyaJava05View view = new ShibuyaJava05View();
-        Scene scene = new Scene(view.getView(), 390, 80);
-        stage.setTitle("shibuyaJava05");
+        Scene scene = new Scene(view.getView(), 640, 480);
+        stage.setTitle("第五回 #渋谷java");
         stage.setScene(scene);
         stage.show();
     }
