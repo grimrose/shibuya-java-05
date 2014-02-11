@@ -35,12 +35,6 @@ public class ShibuyaJava05Presenter {
         table.setEditable(false);
         submitAtColumn.setCellValueFactory(new PropertyValueFactory<MessageRow, String>("submitAt"));
         messageColumn.setCellValueFactory(new PropertyValueFactory<MessageRow, String>("message"));
-
-        Message message = messageService.create("ようこそ");
-        MessageRow row = messageRowService.create(message);
-
-        messageRowList.add(row);
-
         table.setItems(messageRowList);
     }
 
