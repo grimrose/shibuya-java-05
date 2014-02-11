@@ -2,6 +2,7 @@ package org.grimrose;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -44,13 +45,16 @@ public class ShibuyaJava05Presenter {
     }
 
     @FXML
-    private TextField name;
+    private TextField inputMessage;
 
-    @Inject
-    ShibuyaJava05Service shibuyaJava05Service;
+    public void submitMessage(ActionEvent event) {
+        ObservableList<MessageRow> currentList = table.getItems();
 
-    public void sayHello() {
-        // Watch out! this code is executed inside the UI thread.
-        shibuyaJava05Service.sayHello(name.getText());
+        Message message = messageService.create(inputMessage.getText());
+        MessageRow row = messageRowService.create(message);
+
+        currentList.add(row);
+        inputMessage.setText("");
     }
+
 }
