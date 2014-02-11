@@ -1,0 +1,9 @@
+apply from: 'gradle/javafx.gradle'
+
+dependencies {
+    compile 'com.airhacks:afterburner.fx:1.4.1'
+}
+
+javafx {
+    mainClass 'org.grimrose.ShibuyaJava05Main'
+}
