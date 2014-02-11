@@ -7,3 +7,7 @@ dependencies {
 javafx {
     mainClass 'org.grimrose.ShibuyaJava05Main'
 }
+
+wrapper {
+    gradleVersion = '1.10'
+}
